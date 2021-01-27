@@ -7,6 +7,7 @@ import SignUp from "./Components/Login/SignUp";
 import Checkout from "./Components/Checkout/Checkout";
 import Products from "./Components/Products/Products";
 import ProductMgmt from "./Components/ProductMgmt/ProductMgmt";
+import VendorMgmt from "./Components/VendorMgmt/VendorMgmt";
 import Cart from "./Components/CartPage/Cart";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/Checkout" component={Checkout} />
             <Route path="/Products" component={Products} />
             <Route path="/ProductMgmt" component={ProductMgmt} />
+            <Route path="/VendorMgmt" component={VendorMgmt} />
             <Route path="/Cart" component={Cart} />
           </Switch>
         </BrowserRouter>
