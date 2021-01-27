@@ -8,9 +8,9 @@ const CustomTheme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: '#0066ff',
-      main: '#ff4400',
-      contrastText: '#ffcc00',
+      light: '#777676',
+      main: '#777676',
+      contrastText: '#eae9e1',
       dark: "#303f9f",
     } 
   }

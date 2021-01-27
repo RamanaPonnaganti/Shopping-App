@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../Header/Header";
 
 class Products extends React.Component {
   constructor(props) {
@@ -6,7 +7,10 @@ class Products extends React.Component {
   }
 
   render() {
-    return <div>Products</div>;
+    return <div>
+      <Header history={this.props.history}/>
+      Products
+    </div>;
   }
 }
 
