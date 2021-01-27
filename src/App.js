@@ -4,6 +4,10 @@ import "./App.css";
 import { ThemeProvider } from "@material-ui/styles";
 import CustomTheme from "./Components/Theme/CustomTheme";
 import SignUp from "./Components/Login/SignUp";
+import Checkout from "./Components/Checkout/Checkout";
+import Products from "./Components/Products/Products";
+import ProductMgmt from "./Components/ProductMgmt/ProductMgmt";
+import Cart from "./Components/CartPage/Cart";
 
 function App() {
   return (
@@ -12,6 +16,10 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route path="/SignUp" component={SignUp} />
+            <Route path="/Checkout" component={Checkout} />
+            <Route path="/Products" component={Products} />
+            <Route path="/ProductMgmt" component={ProductMgmt} />
+            <Route path="/Cart" component={Cart} />
           </Switch>
         </BrowserRouter>
       </ThemeProvider>
