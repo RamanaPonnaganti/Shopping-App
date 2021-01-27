@@ -1,17 +1,20 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import './App.css';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "./App.css";
 //import CssBaseline from '@material-ui/core/CssBaseline';
-
-import SignUp from './Components/Login/SignUp';
+import { ThemeProvider } from "@material-ui/styles";
+import CustomTheme from "./Components/Theme/CustomTheme";
+import SignUp from "./Components/Login/SignUp";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <ThemeProvider theme={CustomTheme}>
+        <BrowserRouter>
           <Switch>
-            <Route path='/SignUp' component={SignUp}/>
+            <Route path="/SignUp" component={SignUp} />
           </Switch>
-      </BrowserRouter>
+        </BrowserRouter>
+      </ThemeProvider>
     </div>
   );
 }
