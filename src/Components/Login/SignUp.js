@@ -10,12 +10,11 @@ import { useFormik } from "formik";
 import ValidationSchema from "./../Util/ValidationSchema";
 import SignUpStyle from "../Styles/SignUpStyle";
 import Header from "../Header/Header";
-import { useHistory } from 'react-router-dom';
-
+import { useHistory } from "react-router-dom";
 
 export default function SignUp() {
   const history = useHistory();
- 
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -32,9 +31,13 @@ export default function SignUp() {
 
   const classes = SignUpStyle();
 
+  const onClickReset=()=>{
+    formik.resetForm();
+  }
+
   return (
     <div>
-      <Header history={history}/>
+      <Header history={history} />
       <Container component="div" maxWidth="xs">
         <div className={classes.root}>
           <Avatar className={classes.avatar}>
@@ -133,15 +136,31 @@ export default function SignUp() {
                 />
               </Grid>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="main"
-              className={classes.submit}
-            >
-              Sign Up
-            </Button>
+            <div style={{ display: "flex" }}>
+              <Grid item xs={5}>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="main"
+                  className={classes.submit}
+                >
+                  Sign Up
+                </Button>
+              </Grid>
+              <Grid item xs={5}>
+                <Button
+                  type="button"
+                  fullWidth
+                  variant="contained"
+                  color="main"
+                  className={classes.reset}
+                  onClick={onClickReset}
+                >
+                  Reset
+                </Button>
+              </Grid>
+            </div>
           </form>
         </div>
       </Container>

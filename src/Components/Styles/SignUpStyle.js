@@ -18,6 +18,9 @@ const SignUpStyle = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  reset:{
+    margin: theme.spacing(3, 6, 2),
+  }
 }));
 
 export default SignUpStyle;
