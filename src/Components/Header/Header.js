@@ -6,6 +6,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
 
 const useStyles = (theme) => ({
   root: {
@@ -29,13 +30,35 @@ class Header extends React.Component {
     this.props.history.push("/SignUp");
   };
 
+  gotoLogin = () => {
+    this.props.history.push("/Login");
+  };
+
   gotoProducts = () => {
     this.props.history.push("/Products");
   };
 
+  gotoLogout = () => {
+    const {
+      props: { dispatch },
+    } = this;
+    let data = {
+      isuserLoggedIn: false,
+      userDetails: {
+        name: undefined,
+        password: undefined,
+      },
+    };
+    dispatch({ type: "LOGOUT_USER", payload: data });
+    this.props.history.push("/Login");
+  };
+
   render() {
     const { classes } = this.props;
-
+    const {
+      props: { reduxState },
+    } = this;
+    console.log(reduxState);
     return (
       <Container maxWidth={false}>
         <Box component="span" m={1}>
@@ -47,7 +70,21 @@ class Header extends React.Component {
               <Typography variant="h6" className={classes.title}>
                 SHOPPING CART
               </Typography>
-              <Button color="inherit">Login</Button>
+              {reduxState?.signInDetails?.isuserLoggedIn && (
+                <>
+                <div style={{margin: '5px 10px 10px',color: '#dac2c2',fontSize: '20px'}}>
+                  Welcome {reduxState?.signInDetails?.userDetails.name}
+                </div>
+                <Button color="inherit" onClick={this.gotoLogout}>
+                  Logout
+                </Button>
+                </>
+              )}
+              {!reduxState?.signInDetails?.isuserLoggedIn && (
+                <Button color="inherit" onClick={this.gotoLogin}>
+                  Login
+                </Button>
+              )}
               <Button color="inherit" onClick={this.gotoSignUp}>
                 SignUp
               </Button>
@@ -59,4 +96,8 @@ class Header extends React.Component {
   }
 }
 
-export default withStyles(useStyles)(Header);
+export default withStyles(useStyles)(
+  connect((state) => {
+    return { reduxState: state };
+  }, null)(Header)
+);
