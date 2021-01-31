@@ -142,7 +142,7 @@ export default function SignUp() {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  color="main"
+                  color="primary"
                   className={classes.submit}
                 >
                   Sign Up
@@ -153,7 +153,7 @@ export default function SignUp() {
                   type="button"
                   fullWidth
                   variant="contained"
-                  color="main"
+                  color="secondary"
                   className={classes.reset}
                   onClick={onClickReset}
                 >

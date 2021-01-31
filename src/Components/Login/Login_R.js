@@ -88,7 +88,7 @@ const Login_R=() =>{
                   type="submit"
                   fullWidth
                   variant="contained"
-                  color="main"
+                  color="primary"
                   className={classes.submit}
                 >
                   Login
