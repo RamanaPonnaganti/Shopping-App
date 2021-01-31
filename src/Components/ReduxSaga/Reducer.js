@@ -10,7 +10,7 @@ const initialState = {
 
 const rootreducer = (state = initialState, action) => {
   switch (action.type) {
-    case "LOGIN_USER":
+    case "LOGIN":
       return {
           ...state,
           signInDetails:{
@@ -18,7 +18,7 @@ const rootreducer = (state = initialState, action) => {
             ...action.payload
           } 
       };
-    case "LOGOUT_USER":
+    case "LOGOUT":
         return {
             ...state,
             signInDetails:{
